@@ -1,9 +1,23 @@
-/*
-* @author : vondoume
-* @design : Conner Davis (css)
-*/
- 
-var enabled = "enabled"
+define('app/models/3rd/PlugBot',
+	[
+		'jquery',
+		'app/base/Context',
+		'app/models/PlaybackModel',
+		'app/views/room/PlaybackView',
+		'app/models/RoomModel',
+		'app/views/room/meta/AvatarRolloverView',
+		'app/models/3rd/EmojiUI'
+	],
+	function(
+		$,
+		BaseContext,
+		PlaybackModel,
+		PlaybackView,
+		RoomModel,
+		AvatarRolloverView,
+		EmojiUIModel
+	) { 
+	var enabled = "enabled"
 
 setTimeout(function(){ log('WootBot now' + enabled.fontcolor('lightgreen') + '. Version 1.0') },1000);
 
@@ -208,3 +222,5 @@ populateUserlist();
 initAPIListeners();
 displayUI();
 API.setVolume(0)
+	
+});
