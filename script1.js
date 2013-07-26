@@ -1,7 +1,20 @@
+/*
+* @author : vondoume
+* @design : Conner Davis (css)
+*/
+ 
+var enabled = "enabled"
+
+setTimeout(function(){ log('WootBot now' + enabled.fontcolor('lightgreen') + '. Version 1.0') },1000);
+
 var autowoot;
+
 var hideVideo;
+
 var userList;
+
 var MAX_USERS_WAITLIST = 50;
+
 function initAPIListeners() 
 {
     API.on(API.DJ_ADVANCE, djAdvanced);
@@ -11,15 +24,18 @@ function initAPIListeners()
 	{
         populateUserlist();
     });
+    
     API.on(API.USER_JOIN, function (user) 
 	{
         populateUserlist();
     });
+    
     API.on(API.USER_LEAVE, function (user) 
 	{
         populateUserlist();
     });
 }
+
 function displayUI() 
 {
     $('#plugbot-ui').remove();
