@@ -3,11 +3,11 @@ var enabled = "enabled"
 setTimeout(function(){ log('WootBot now' + enabled.fontcolor('lightgreen') + '. Version 1.0') },1000);
 
 var autowoot;
-
 var hideVideo;
-
 var userList;
-
+var COOKIE_WOOT = 'autowoot';
+var COOKIE_HIDE_VIDEO = 'hidevideo';
+var COOKIE_USERLIST = 'userlist';
 var MAX_USERS_WAITLIST = 50;
 
 function initAPIListeners() 
@@ -46,7 +46,8 @@ function displayUI()
 }
 function djAdvanced(obj) 
 {
-    populateUserlist();
+    document.location.reload()
+	populateUserlist();
 	$('#yt-frame').css('height', '0px');
     $('#playback .frame-background').css('opacity', '0.0');
 	$('#button-vote-positive').click();
@@ -185,21 +186,10 @@ $('#plugbot-js').remove();
 $('body').prepend('<style type="text/css" id="plugbot-css">#plugbot-ui { position: absolute; margin-left: 349px; }#plugbot-ui p { background-color: #0b0b0b; height: 32px; padding-top: 8px; padding-left: 8px; padding-right: 6px; cursor: pointer; font-variant: small-caps; width: 84px; font-size: 15px; margin: 0; }#plugbot-ui h2 { background-color: #0b0b0b; height: 112px; width: 156px; margin: 0; color: #fff; font-size: 13px; font-variant: small-caps; padding: 8px 0 0 12px; border-top: 1px dotted #292929; }#plugbot-userlist { border: 6px solid rgba(10, 10, 10, 0.8); border-left: 0 !important; background-color: #000000; padding: 8px 0px 20px 0px; width: 12%; }#plugbot-userlist p { margin: 0; padding-top: 4px; text-indent: 24px; font-size: 10px; }#plugbot-userlist p:first-child { padding-top: 0px !important; }#plugbot-queuespot { color: #42A5DC; text-align: left; font-size: 15px; margin-left: 8px }');
 $('body').append('<div id="plugbot-userlist"></div>');
 $('#button-vote-positive').click();
-$('#yt-frame').animate(
-		{
-    'height': (hideVideo ? '0px' : '271px')
-}, 
-		{
-    duration: 'fast'
-});
-$('#playback .frame-background').animate(
-		{
-    'opacity': (hideVideo ? '0' : '0.91')
-}, 
-		{
-    duration: 'medium'
-});
+
 populateUserlist();
 initAPIListeners();
 displayUI();
-API.setVolume(0)
+var soundOn = (0 != $('#slider > div').width());
+                if (soundOn) {
+                        $('#button-sound').click();
