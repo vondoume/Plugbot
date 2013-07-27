@@ -30,7 +30,7 @@ function initAPIListeners()
 
 function djAdvanced(obj) 
 {
-    document.location.reload()
+    javascript: document.location.reload();
 }
 function populateUserlist() 
 {
@@ -169,6 +169,3 @@ $('#button-vote-positive').click();
 populateUserlist();
 initAPIListeners();
 displayUI();
-var soundOn = (0 != $('#slider > div').width());
-if (soundOn) {
-        $('#button-sound').click();
