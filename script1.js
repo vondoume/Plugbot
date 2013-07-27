@@ -5,9 +5,6 @@ setTimeout(function(){ log('WootBot now' + enabled.fontcolor('lightgreen') + '. 
 var autowoot;
 var hideVideo;
 var userList;
-var COOKIE_WOOT = 'autowoot';
-var COOKIE_HIDE_VIDEO = 'hidevideo';
-var COOKIE_USERLIST = 'userlist';
 var MAX_USERS_WAITLIST = 50;
 
 function initAPIListeners() 
@@ -31,27 +28,9 @@ function initAPIListeners()
     });
 }
 
-function displayUI() 
-{
-    $('#plugbot-ui').remove();
-
-    $('#chat').prepend('<div id="plugbot-ui"></div>');
-
-    var cWoot = autowoot ? '#3FFF00' : '#ED1C24';
-    var cHideVideo = hideVideo ? '#3FFF00' : '#ED1C24';
-    var cUserList = userList ? '#3FFF00' : '#ED1C24';
-
-    $('#plugbot-ui').append(
-        '<p id="plugbot-btn-woot" style="color:' + cWoot + '">auto-woot</p><p id="plugbot-btn-hidevideo" style="color:' + cHideVideo + '">hide video</p><p id="plugbot-btn-userlist" style="color:' + cUserList + '">userlist</p>');
-}
 function djAdvanced(obj) 
 {
     document.location.reload()
-	populateUserlist();
-	$('#yt-frame').css('height', '0px');
-    $('#playback .frame-background').css('opacity', '0.0');
-	$('#button-vote-positive').click();
-	API.setVolume(0)
 }
 function populateUserlist() 
 {
@@ -191,5 +170,5 @@ populateUserlist();
 initAPIListeners();
 displayUI();
 var soundOn = (0 != $('#slider > div').width());
-                if (soundOn) {
-                        $('#button-sound').click();
+if (soundOn) {
+        $('#button-sound').click();
