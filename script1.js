@@ -30,7 +30,7 @@ function initAPIListeners()
 
 function djAdvanced(obj) 
 {
-    javascript: document.location.reload();
+    $('#button-vote-positive').click();
 }
 function populateUserlist() 
 {
